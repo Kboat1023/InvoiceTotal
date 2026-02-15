@@ -22,7 +22,25 @@ namespace InvoiceTotal
 
         }
 
-        private void frmInvoiceTotal_Load(object sender, EventArgs e)
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            decimal invoiceSubtotal = Convert.ToDecimal(txtSubtotal.Text);
+
+            decimal discountPercent = 0.25m;
+            decimal discountAmount = invoiceSubtotal * discountPercent;
+            decimal total = invoiceSubtotal - discountAmount;
+
+            txtDiscountPercent.Text = discountPercent.ToString("p1");
+            txtDiscountAmount.Text = discountAmount.ToString("c");
+            txtTotal.Text = total.ToString("c");
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
